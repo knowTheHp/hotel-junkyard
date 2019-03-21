@@ -1,1 +1,1 @@
-# hotel junkyard
+# Landing page for Hotel Junkyard
