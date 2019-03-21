@@ -1,0 +1,243 @@
+.hamburger-menu {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    z-index: 300;
+
+    .menu {
+        @extend %fullSpace;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        cursor: pointer;
+        transition: transform .5s;
+
+        &-line {
+            width: 100%;
+            height: 4px;
+            background-color: $color-primary;
+            transition: all .5s .3s;
+        }
+    }
+}
+
+.brand {
+    @include absolutePosition(15%);
+    @include flexLayout();
+
+    &-logo {
+        @include logo;
+    }
+
+    &-heading {
+        color: $color-white;
+        text-align: $font-center;
+
+        &_text {
+            @include headerOne;
+        }
+
+        &_sub-text {
+            @include subHeader;
+        }
+
+    }
+
+    &-banner {
+        color: $color-white;
+        @include absolutePosition(40%);
+        text-align: $font-center;
+        margin-top: 150px;
+
+        &_heading {
+            @include headerOne(capitalize);
+            font-family: $font-dancing;
+            font-size: fontSize($font-md, 4);
+            color: $color-primary;
+        }
+
+        &_sub-heading {
+            margin-top: 20px;
+            font-weight: $font-light;
+            word-spacing: 5px;
+            font-size: fontSize($font-sm, 2);
+            opacity: $opacity-medium;
+            @include fontCase(capitalize);
+        }
+    }
+
+}
+
+.about-left {
+    width: 40%;
+    position: relative;
+    left: -200px;
+
+    &__img {
+        width: 100%;
+    }
+}
+
+.about-right {
+    width: 60%;
+    @include flexLayout(column);
+    padding: 0 100px;
+
+    &_header {
+        @include headerOne(capitalize);
+        font-family: $font-dancing;
+        color: $color-primary;
+        margin-bottom: 50px;
+    }
+
+    &_sub-header {
+        @include subHeader;
+        word-spacing: 5px;
+        margin-bottom: 50px;
+    }
+
+    &_stars {
+        color: $color-primary;
+        margin: 20px 0;
+    }
+
+    &_description {
+        text-align: justify;
+        font-size: 20px;
+        opacity: 0.7;
+
+        &::first-letter {
+            padding-left: 50px;
+        }
+    }
+
+    .btn-read {
+        width: 200px;
+    }
+}
+
+.img-card {
+    position: relative;
+    width: 33.33%;
+    height: 30vw;
+    background-color: rgba(0, 0, 0, 1);
+    overflow: hidden;
+
+    &:hover &_overlay {
+        left: 0;
+    }
+
+    &_overlay {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        background-color: rgba($color-primary, 0.6);
+        @extend %fullSpace;
+        @include flexLayout(column);
+        color: $color-white;
+        z-index: 10;
+        transition: all .5s;
+
+        &-heading {
+            font-size: fontSize($font-md, 2);
+            font-weight: $font-light;
+        }
+
+        &-text {
+            font-size: $font-sm;
+        }
+
+        &-btn {
+            cursor: pointer;
+            outline: none;
+            margin-top: 40px;
+            font-size: 14px;
+            text-transform: $font-uppercase;
+            color: $color-primary;
+            background-color: $color-white;
+            width: 160px;
+            height: 50px;
+            border: 1px solid $color-primary;
+            border-radius: 30px;
+        }
+    }
+
+    &_pic {
+        opacity: 0.8;
+        object-fit: cover;
+        @extend %fullSpace;
+    }
+}
+
+.btn {
+    margin-top: 80px;
+    text-transform: $font-uppercase;
+    color: $color-primary;
+    outline: none;
+    border: 1px solid $color-primary;
+    width: 150px;
+    height: 60px;
+    background-color: transparent;
+    transition: all .7s;
+    font-weight: 300;
+
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+        cursor: pointer;
+    }
+}
+
+.footer {
+    &-brand {
+        @include flexLayout();
+
+        &-logo {
+            @include logo;
+        }
+
+        &-heading {
+            color: $color-white;
+            text-align: $font-center;
+
+            &_text {
+                @include headerOne(uppercase, $font-xs);
+            }
+
+            &_sub-text {
+                @include subHeader;
+            }
+        }
+    }
+
+    .social-list {
+        margin-top: 50px;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+
+        &_item {
+            list-style: none;
+
+            &-link {
+                text-decoration: $font-decoration;
+                font-size: $font-lg;
+                color: $color-white;
+                padding: 10px;
+                opacity: .7;
+                transition: all .7s;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .copyright {
+        margin-top: 40px;
+        opacity: .5;
+    }
+}

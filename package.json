@@ -1,0 +1,20 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "app webpage",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass -o css scss/main.scss -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
+  },
+  "author": "harpreet",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.11.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^6.1.2"
+  }
+}
